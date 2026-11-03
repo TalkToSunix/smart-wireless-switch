@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schemas.cloudflare.com/wrangler/config-schema.json",
+  "name": "smart-outlet-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-03",
+  "kv_namespaces": [
+    { "binding": "OUTLET_KV", "id": "REPLACE_WITH_KV_NAMESPACE_ID" }
+  ]
+}

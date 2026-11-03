@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <title>کنترل کلید پریز هوشمند</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <main class="shell">
+    <header class="hero">
+      <div class="mark" aria-hidden="true">⚡</div>
+      <div><p class="eyebrow">SMART OUTLET</p><h1>کلید پریز هوشمند</h1></div>
+      <span id="connection" class="status offline"><i></i> قطع</span>
+    </header>
+
+    <section class="scene" aria-label="تصویر انیمیشنی ارتباط ESP32 با ماژول رله">
+      <img src="hero.svg" alt="انیمیشن مسیر فرمان از ESP32 به ماژول رله">
+    </section>
+
+    <section class="card" id="controlCard">
+      <p class="label">وضعیت پریز</p>
+      <div class="outlet-icon" id="outletIcon" aria-hidden="true"><span></span><span></span></div>
+      <h2 id="stateText">در حال اتصال…</h2>
+      <p id="detailText" class="muted">آدرس ESP32 را وارد کن تا شروع کنیم.</p>
+      <button id="toggle" type="button" disabled>اتصال…</button>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <details class="settings" open>
+      <summary>تنظیم اتصال</summary>
+      <label>آدرس Cloudflare Worker <input id="workerUrl" type="url" placeholder="https://outlet-api.example.workers.dev" autocomplete="url"></label>
+      <label>کلید کنترلی <input id="controllerToken" type="password" placeholder="کلیدی که خودت هنگام استقرار می‌سازی" autocomplete="off"></label>
+      <button id="save" class="secondary" type="button">ذخیره و اتصال</button>
+      <p class="hint">برای کنترل از راه دور، Worker باید از تونل خصوصی و امن به ESP32 برسد. پورت دستگاه را مستقیم روی اینترنت باز نکن.</p>
+    </details>
+    <footer>کنترل محلی · وضعیت هر ۵ ثانیه به‌روزرسانی می‌شود</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
